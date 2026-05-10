@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ruleshub.dev/schema/ruleshub.json",
+  "name": "lozymon/test-runner",
+  "version": "0.1.0",
+  "type": "skill",
+  "description": "Detect the project's test framework, run the suite (or a focused subset), and summarize failures with file:line and the assertion that failed.",
+  "license": "MIT",
+  "tags": ["testing", "ci", "test-runner"],
+  "projectTypes": ["generic"],
+  "targets": {
+    "claude-code": { "file": "SKILL.md" }
+  }
+}

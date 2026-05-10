@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ruleshub.dev/schema/ruleshub.json",
+  "name": "lozymon/git-commit-conventions",
+  "version": "0.1.0",
+  "type": "rule",
+  "description": "Conventional commits format: type(scope): description. Defines allowed types, subject rules, body wrapping, breaking-change footers, and what to avoid.",
+  "license": "MIT",
+  "tags": ["git", "conventional-commits", "changelog"],
+  "projectTypes": ["generic"],
+  "targets": {
+    "claude-code": { "file": "CLAUDE.md" }
+  }
+}

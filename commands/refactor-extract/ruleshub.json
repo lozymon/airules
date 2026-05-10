@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ruleshub.dev/schema/ruleshub.json",
+  "name": "lozymon/refactor-extract",
+  "version": "0.1.0",
+  "type": "command",
+  "description": "Extract a function, component, or module from a larger one without changing observable behavior. Verifies tests pass before and after.",
+  "license": "MIT",
+  "tags": ["refactor", "extract", "behavior-preserving"],
+  "projectTypes": ["generic"],
+  "targets": {
+    "claude-code": { "file": "command.md" }
+  }
+}

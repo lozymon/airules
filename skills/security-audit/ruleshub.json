@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ruleshub.dev/schema/ruleshub.json",
+  "name": "lozymon/security-audit",
+  "version": "0.1.0",
+  "type": "skill",
+  "description": "Read-only review of staged or branch changes for OWASP-style issues: injection, XSS, hardcoded secrets, weak crypto, missing auth, unsafe deserialization, SSRF, path traversal.",
+  "license": "MIT",
+  "tags": ["security", "owasp", "audit", "code-review"],
+  "projectTypes": ["generic"],
+  "targets": {
+    "claude-code": { "file": "SKILL.md" }
+  }
+}

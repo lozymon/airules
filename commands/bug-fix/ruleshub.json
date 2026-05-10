@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ruleshub.dev/schema/ruleshub.json",
+  "name": "lozymon/bug-fix",
+  "version": "0.1.0",
+  "type": "command",
+  "description": "Fix a bug methodically: reproduce, find the root cause, write a failing test, apply the smallest fix, verify. No scope creep.",
+  "license": "MIT",
+  "tags": ["debugging", "bug-fix", "testing"],
+  "projectTypes": ["generic"],
+  "targets": {
+    "claude-code": { "file": "command.md" }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ruleshub.dev/schema/ruleshub.json",
+  "name": "lozymon/no-secrets-in-code",
+  "version": "0.1.0",
+  "type": "rule",
+  "description": "Keep secrets out of source: env vars only, no hardcoded keys/tokens/URLs, never log secrets, never commit .env. Lists what counts as a secret and how to handle each.",
+  "license": "MIT",
+  "tags": ["security", "secrets", "env", "12factor"],
+  "projectTypes": ["generic"],
+  "targets": {
+    "claude-code": { "file": "CLAUDE.md" }
+  }
+}

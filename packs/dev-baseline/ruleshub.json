@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ruleshub.dev/schema/ruleshub.json",
+  "name": "lozymon/dev-baseline",
+  "version": "0.1.0",
+  "type": "pack",
+  "description": "Language-agnostic dev baseline: conventional commits, no-secrets, PR review, bug-fix workflow, behavior-preserving refactor, commit cleanup, test runner, security audit.",
+  "license": "MIT",
+  "tags": ["baseline", "quality", "security", "language-agnostic"],
+  "projectTypes": ["generic"],
+  "includes": [
+    "lozymon/git-commit-conventions@^0.1.0",
+    "lozymon/no-secrets-in-code@^0.1.0",
+    "lozymon/pr-review@^0.1.0",
+    "lozymon/bug-fix@^0.1.0",
+    "lozymon/refactor-extract@^0.1.0",
+    "lozymon/commit-cleanup@^0.1.0",
+    "lozymon/test-runner@^0.1.0",
+    "lozymon/security-audit@^0.1.0"
+  ]
+}
