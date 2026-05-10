@@ -1,0 +1,13 @@
+{
+  "name": "airules-workspace",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Workspace for authoring and publishing ruleshub assets under lozymon/",
+  "scripts": {
+    "validate": "bash scripts/validate-all.sh",
+    "publish:asset": "bash scripts/publish-one.sh"
+  },
+  "devDependencies": {
+    "ruleshub": "^0.1.0"
+  }
+}
