@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ruleshub.dev/schema/ruleshub.json",
+  "name": "lozymon/find-the-flaws",
+  "version": "0.1.0",
+  "type": "skill",
+  "description": "Read-only critical review of staged or branch changes for correctness bugs, edge cases, race conditions, error-handling gaps, resource leaks, performance traps, and bad assumptions. Complements security-audit.",
+  "license": "MIT",
+  "tags": ["code-review", "quality", "bugs", "correctness", "audit"],
+  "projectTypes": ["generic"],
+  "targets": {
+    "claude-code": { "file": "SKILL.md" }
+  }
+}
