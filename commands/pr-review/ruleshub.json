@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ruleshub.dev/schema/ruleshub.json",
+  "name": "lozymon/pr-review",
+  "version": "0.1.0",
+  "type": "command",
+  "description": "Review the current branch's diff for correctness, scope creep, missing tests, and style violations before opening a PR.",
+  "license": "MIT",
+  "tags": ["pr-review", "code-review", "git"],
+  "projectTypes": ["generic"],
+  "targets": {
+    "claude-code": { "file": "command.md" }
+  }
+}

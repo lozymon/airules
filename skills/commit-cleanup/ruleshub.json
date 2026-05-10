@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ruleshub.dev/schema/ruleshub.json",
+  "name": "lozymon/commit-cleanup",
+  "version": "0.1.0",
+  "type": "skill",
+  "description": "Tidy a feature branch before PR: squash WIP/fixup commits, rewrite messages to conventional-commits format, drop accidental files.",
+  "license": "MIT",
+  "tags": ["git", "commits", "conventional-commits", "branch-cleanup"],
+  "projectTypes": ["generic"],
+  "targets": {
+    "claude-code": { "file": "SKILL.md" }
+  }
+}
