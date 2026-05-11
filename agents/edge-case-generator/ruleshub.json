@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ruleshub.dev/schema/ruleshub.json",
+  "name": "lozymon/edge-case-generator",
+  "version": "0.1.0",
+  "type": "agent",
+  "description": "Given a function (signature + behavior), proposes edge cases tied to its actual input domain — boundary, numeric, string, time, collection, concurrency, error, state, security, locale — each with the bug it catches",
+  "license": "MIT",
+  "tags": ["testing", "edge-cases", "test-cases", "robustness", "quality"],
+  "projectTypes": ["generic"],
+  "targets": {
+    "claude-code": { "file": "AGENT.md" }
+  }
+}
