@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ruleshub.dev/schema/ruleshub.json",
+  "name": "lozymon/dead-code-hunter",
+  "version": "0.1.0",
+  "type": "agent",
+  "description": "Finds dead exports and files in TS/JS projects; framework-aware (Next.js, Remix, SvelteKit, Astro, Nuxt, Gatsby, Vite); reports high/medium-confidence findings with reasoning, never silent assertions",
+  "license": "MIT",
+  "tags": ["dead-code", "unused", "refactor", "tree-shaking", "static-analysis", "cleanup"],
+  "projectTypes": ["generic"],
+  "targets": {
+    "claude-code": { "file": "AGENT.md" }
+  }
+}
