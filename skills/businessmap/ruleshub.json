@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ruleshub.dev/schema/ruleshub.json",
+  "name": "lozymon/businessmap",
+  "version": "0.1.0",
+  "type": "skill",
+  "description": "Interact with Businessmap (Kanbanize) via its MCP server — query/search cards, create and update cards, move between columns, add comments, and log work; requires a registered Businessmap MCP server",
+  "license": "MIT",
+  "tags": ["businessmap", "kanbanize", "kanban", "project-management", "mcp"],
+  "projectTypes": ["generic"],
+  "targets": {
+    "claude-code": { "file": "SKILL.md" }
+  }
+}
