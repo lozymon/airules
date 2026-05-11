@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ruleshub.dev/schema/ruleshub.json",
+  "name": "lozymon/naming-reviewer",
+  "version": "0.1.0",
+  "type": "agent",
+  "description": "Reviews changed code for naming issues — misleading, ambiguous, type-redundant, inconsistent verbs, negated booleans, stuttering, lying — with rationale and sibling-aware replacement suggestions",
+  "license": "MIT",
+  "tags": ["naming", "review", "refactor", "readability", "code-quality"],
+  "projectTypes": ["generic"],
+  "targets": {
+    "claude-code": { "file": "AGENT.md" }
+  }
+}
