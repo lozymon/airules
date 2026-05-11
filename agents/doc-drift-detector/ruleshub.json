@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ruleshub.dev/schema/ruleshub.json",
+  "name": "lozymon/doc-drift-detector",
+  "version": "0.1.0",
+  "type": "agent",
+  "description": "Compares docs (README, docs/**, *.md) against code to find drift — stale APIs, removed CLI flags, missing files, broken examples, outdated env vars — and reports findings grouped by severity",
+  "license": "MIT",
+  "tags": ["documentation", "docs", "drift", "readme", "audit", "consistency"],
+  "projectTypes": ["generic"],
+  "targets": {
+    "claude-code": { "file": "AGENT.md" }
+  }
+}
