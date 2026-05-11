@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ruleshub.dev/schema/ruleshub.json",
+  "name": "lozymon/pr-description-author",
+  "version": "0.1.0",
+  "type": "agent",
+  "description": "Reads branch diff vs. base and writes a high-signal PR description: Summary, Why, Changes, Test plan, Risk, Reviewer notes; refuses to fabricate WHY when commits don't state it",
+  "license": "MIT",
+  "tags": ["pr", "pull-request", "code-review", "git", "writing", "github"],
+  "projectTypes": ["generic"],
+  "targets": {
+    "claude-code": { "file": "AGENT.md" }
+  }
+}
