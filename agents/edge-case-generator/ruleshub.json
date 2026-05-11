@@ -3,7 +3,7 @@
   "name": "lozymon/edge-case-generator",
   "version": "0.1.0",
   "type": "agent",
-  "description": "Given a function (signature + behavior), proposes edge cases tied to its actual input domain — boundary, numeric, string, time, collection, concurrency, error, state, security, locale — each with the bug it catches",
+  "description": "Given a function, proposes domain-specific edge cases (boundary, numeric, string, time, collection, concurrency, error, state, security, locale) — each with the input and the bug it catches",
   "license": "MIT",
   "tags": ["testing", "edge-cases", "test-cases", "robustness", "quality"],
   "projectTypes": ["generic"],
