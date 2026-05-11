@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ruleshub.dev/schema/ruleshub.json",
+  "name": "lozymon/migration-impact-scanner",
+  "version": "0.1.0",
+  "type": "agent",
+  "description": "Given a refactor (renamed/changed/removed symbol, type-shape change, env var rename, endpoint change), finds every call site and grades migration difficulty per site (trivial/easy/moderate/hard)",
+  "license": "MIT",
+  "tags": ["refactor", "migration", "impact", "breaking-changes", "call-sites", "audit"],
+  "projectTypes": ["generic"],
+  "targets": {
+    "claude-code": { "file": "AGENT.md" }
+  }
+}
