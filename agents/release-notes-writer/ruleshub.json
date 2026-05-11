@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ruleshub.dev/schema/ruleshub.json",
+  "name": "lozymon/release-notes-writer",
+  "version": "0.1.0",
+  "type": "agent",
+  "description": "Writes user-facing release notes for a version range; groups by user impact (new/improved/fixed/breaking) not commit type, filters internal noise, surfaces breaking changes with migration",
+  "license": "MIT",
+  "tags": ["release-notes", "changelog", "release", "git", "writing", "github"],
+  "projectTypes": ["generic"],
+  "targets": {
+    "claude-code": { "file": "AGENT.md" }
+  }
+}
