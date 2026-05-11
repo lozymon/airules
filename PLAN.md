@@ -1,182 +1,51 @@
-# airules — Plan
+# Agents — roadmap
 
-Workspace for authoring and publishing many ruleshub assets (rules, commands, skills, workflows, agents, mcp-servers, packs) under the `lozymon/` namespace.
+Forward-looking list of subagents to publish under `lozymon/`. Bias: agents that are **read-heavy and parallelizable** (save main context, play to subagent strengths) or that have a **fixed, valuable output format**. Skip ideas that would just wrap inline behavior Claude already does well.
 
----
+Today: 0 agents. 7 skills (`businessmap`, `commit-cleanup`, `draft-issue`, `drill-me`, `find-the-flaws`, `security-audit`, `test-runner`), 3 commands, 3 rules.
 
-## 1. Workspace layout (flat by type)
+## Candidates
 
-```
-airules/
-├── README.md                       # what this repo is, how to publish
-├── PLAN.md                         # this file
-├── .gitignore                      # node_modules, dist, .env
-├── package.json                    # dev tooling: ruleshub CLI as devDep
-├── scripts/
-│   ├── validate-all.sh             # walks every asset dir, runs `ruleshub validate`
-│   └── publish-all.sh              # publishes only assets with bumped versions
-├── rules/
-│   └── <slug>/
-│       ├── ruleshub.json
-│       └── CLAUDE.md
-├── commands/
-│   └── <slug>/
-│       ├── ruleshub.json
-│       └── command.md
-├── skills/
-│   └── <slug>/
-│       ├── ruleshub.json
-│       └── SKILL.md
-├── workflows/
-│   └── <slug>/
-│       ├── ruleshub.json
-│       └── workflow.md
-├── agents/
-│   └── <slug>/
-│       ├── ruleshub.json
-│       └── agent.md
-├── mcp-servers/
-│   └── <slug>/
-│       ├── ruleshub.json
-│       └── README.md
-└── packs/
-    └── <slug>/
-        ├── ruleshub.json           # only `includes`, no content file
-        └── README.md
-```
+### Review / critique
+Complements existing skills (`find-the-flaws`, `security-audit`). These run as one-shot read-only critics.
 
-Each asset folder is a self-contained ruleshub package: `cd <folder> && ruleshub publish`.
+- **api-design-reviewer** — review a proposed TS interface / REST endpoint / GraphQL schema for consistency, error handling, evolvability
+- **doc-drift-detector** — read README + docs, compare against code, surface docs that lie
+- **naming-reviewer** — flag bad names in changed code (acronyms, lying names, ambiguous abbreviations, type-redundant suffixes)
 
----
+### Authoring
+Fixed output formats, run on a diff or range. Save main context by keeping the writing pass in a subagent.
 
-## 2. Asset types — what to produce in each
+- **pr-description-author** — given branch diff, produce Summary / Why / Test plan / Risk / Reviewer notes
+- **release-notes-writer** — user-facing release notes grouped by user impact (not commit type); pairs with `commit-cleanup`
+- **rfc-author** — deeper interview than an ADR; outputs RFC with prior art, options, FAQs
 
-| Type         | Folder         | Content file              | Target effect (claude-code)                |
-| ------------ | -------------- | ------------------------- | ------------------------------------------ |
-| `rule`       | `rules/`       | `CLAUDE.md`               | injected into project CLAUDE.md            |
-| `command`    | `commands/`    | `command.md`              | `.claude/commands/<slug>.md`               |
-| `skill`      | `skills/`      | `SKILL.md`                | `.claude/skills/<slug>/SKILL.md`           |
-| `workflow`   | `workflows/`   | `workflow.md`             | multi-step playbook                        |
-| `agent`      | `agents/`      | `agent.md`                | `.claude/agents/<slug>.md`                 |
-| `mcp-server` | `mcp-servers/` | `README.md` + JSON snippet | `.claude/settings.json` `mcpServers` entry |
-| `pack`       | `packs/`       | (none — `includes` only)  | bundles dependencies                       |
+### Research
+Read-only and parallelizable — these earn the subagent overhead most clearly.
 
----
+- **dep-auditor** — audit package manifests for outdated, vulnerable, abandoned, duplicated deps
+- **dead-code-hunter** — find exports/files with no inbound references; smart about dynamic imports, plugin patterns, framework conventions
+- **migration-impact-scanner** — given a renamed type / changed signature / deleted helper, map every call site and grade migration difficulty per call site
 
-## 3. `ruleshub.json` templates
+### Testing
+- **edge-case-generator** — given a function signature + behavior description, propose a comprehensive list of edge cases worth covering
 
-Standard fields for every asset:
+## Suggested build order
 
-```json
-{
-  "$schema": "https://ruleshub.dev/schema/ruleshub.json",
-  "name": "lozymon/<slug>",
-  "version": "0.1.0",
-  "type": "<rule|command|skill|workflow|agent|mcp-server|pack>",
-  "description": "<one line, ≤200 chars>",
-  "license": "MIT",
-  "tags": ["<tag1>", "<tag2>"],
-  "projectTypes": ["<node|python|generic|...>"],
-  "targets": { "claude-code": { "file": "<content-file>" } }
-}
-```
+1. **pr-description-author** — highest leverage; universal need; fixed output; complements existing review skills
+2. **dep-auditor** — read-only, parallelizable, clear value, well-scoped
+3. **dead-code-hunter** — strong fit for subagent (heavy reading), genuinely hard to do well inline
+4. **doc-drift-detector** — read-heavy, fixed output (drift report), pairs with naming/api review
+5. **migration-impact-scanner** — high value when needed; lower frequency
+6. **release-notes-writer** — depends on `commit-cleanup` workflow being in use
+7. **api-design-reviewer** — useful but narrower audience (TS / REST / GraphQL teams)
+8. **naming-reviewer** — narrowest scope; build last or fold into `find-the-flaws`
+9. **edge-case-generator** — useful but needs careful prompt design to avoid generic output
+10. **rfc-author** — overlaps with `drill-me`'s decision/spec scaffolds; build only if RFC-specific format earns its place
 
-Pack variant:
+## Open decisions before building
 
-```json
-{
-  "$schema": "https://ruleshub.dev/schema/ruleshub.json",
-  "name": "lozymon/<pack-slug>",
-  "version": "0.1.0",
-  "type": "pack",
-  "description": "<bundle description>",
-  "license": "MIT",
-  "tags": [],
-  "projectTypes": [],
-  "includes": [
-    "lozymon/<asset-a>@^0.1.0",
-    "lozymon/<asset-b>@^0.1.0"
-  ]
-}
-```
-
----
-
-## 4. Naming & versioning conventions
-
-- **Slug** — kebab-case, matches `^[a-z][a-z0-9-]*$`. No leading digit, no underscores, no double-hyphens.
-- **No type prefix in slug** — the folder already encodes the type. Avoid `rule-typescript-strict`.
-- **No AI-tool prefix in slug** — assets are provider-agnostic; tool targeting belongs in `targets`. Avoid `claude-typescript-strict`.
-- **SemVer** — start at `0.1.0`. Breaking content changes bump major; content additions minor; typo fixes patch.
-- **Tags** — lowercase, hyphenated, max ~5 per asset. Reuse existing tags where possible.
-- **Description** — imperative mood, no trailing period. Answers *what does this do?* — not *why does it exist?* (the schema enforces ≤200 chars).
-- **Changelog** — required on minor/major bumps, optional on patch. Free-form, one line per change.
-
----
-
-## 5. Publish flow
-
-1. `ruleshub validate` inside each asset folder — schema check (or `npm run validate` for the whole workspace)
-2. Bump `version` in `ruleshub.json`; update `changelog` if minor/major
-3. `RULESHUB_TOKEN=… ruleshub publish` (or `bash scripts/publish-one.sh <path>`)
-4. Pack assets publish **after** their dependencies — manual order, no topo sort yet
-
-Token: get from ruleshub.dev/dashboard → API Keys; store in `.env` (gitignored) or shell rc.
-
----
-
-## 6. Initial roadmap
-
-### Tier 1 — tight starter set (built ✅)
-
-Four assets that exercise every flow (rule + command + skill + pack `includes`).
-
-- [x] `rules/typescript-strict` — no `any`, prefer `unknown`, exhaustive switch checks
-- [x] `commands/pr-review` — review a diff against project rules
-- [x] `skills/commit-cleanup` — squash WIP commits, rewrite messages to convention
-- [x] `packs/starter-quality` — bundles the three above
-
-### Tier 1.5 — round out general-purpose (built ✅)
-
-- [x] `rules/git-commit-conventions` — conventional-commits format, allowed types, do's/don'ts
-- [x] `rules/no-secrets-in-code` — env vars only, what counts as a secret, rotation guidance
-- [x] `commands/bug-fix` — reproduce → root cause → failing test → minimal fix → verify
-- [x] `commands/refactor-extract` — behavior-preserving extraction with baseline + verification
-- [x] `skills/test-runner` — detect framework, run suite or focused subset, summarize failures
-- [x] `skills/security-audit` — read-only OWASP-style review of staged/branch diff
-- [x] `packs/dev-baseline` — eight language-agnostic assets (no `typescript-strict`)
-- [x] `packs/dev-baseline-ts` — `dev-baseline` + `typescript-strict` (nine assets, TS-flavored)
-- [ ] `rules/python-typed` — deferred (do when first Python project pulls it in)
-- [ ] `packs/dev-baseline-py` — deferred (parallel to `-ts`, swaps in `python-typed`)
-
-### Tier 2 — framework specialization
-
-- React / Next.js pack — rules + page/component scaffolds + hook fixer skill
-- NestJS pack — extends existing `lozymon/nestjs-rules` samples
-- Django pack — model/view/serializer rules + migration command
-- FastAPI pack — router/dependency rules + endpoint scaffold
-
-### Tier 3 — devops & integrations
-
-- Dockerfile rules (multi-stage, non-root user, healthcheck)
-- GitHub Actions workflows (test/lint/release templates)
-- MCP server configs: Postgres, GitHub, Sentry, Linear
-
----
-
-## 7. Locked decisions
-
-- [x] **Repo init**: `git init` from day one — version bumps as commits, history per asset
-- [x] **Local CLI**: `ruleshub` installed as devDep, `npm run validate` / `npm run publish`
-- [x] **Tier 1**: 4 assets (typescript-strict / pr-review / commit-cleanup / starter-quality)
-- [x] **License default**: MIT for all assets
-- [x] **No topo-sort script** — manual publish order is fine until 20+ assets
-
----
-
-## 8. Next steps
-
-1. Scaffold workspace skeleton: `README.md`, `.gitignore`, `package.json`, `scripts/`
-2. Create Tier 1 assets one at a time (real content, not placeholders)
-3. Validate all → publish dry-run → publish
-4. Move to Tier 1.5 once Tier 1 is live and we know the shape works
+- **Agent definition format** — confirm the schema (`agents/<name>/agent.md` + `ruleshub.json`?) and a reference example. The workspace currently has `agents/` but no assets in it.
+- **Tool allowlists per agent** — should agents inherit a base allowlist (Read, Grep, Bash for git) or declare from scratch each time?
+- **Output conventions** — agents that report back to a parent should agree on a fixed report format (e.g., findings grouped by severity, like `find-the-flaws`). Worth a shared style guide before authoring multiple agents.
+- **Naming** — agents/skills with overlapping names (e.g., a future `pr-review` agent vs. the existing `pr-review` command) need disambiguation.
