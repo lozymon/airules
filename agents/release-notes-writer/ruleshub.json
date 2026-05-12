@@ -1,13 +1,28 @@
 {
   "$schema": "https://ruleshub.dev/schema/ruleshub.json",
   "name": "lozymon/release-notes-writer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "agent",
   "description": "Writes user-facing release notes for a version range; groups by user impact (new/improved/fixed/breaking) not commit type, filters internal noise, surfaces breaking changes with migration",
+  "tags": [
+    "release-notes",
+    "changelog",
+    "release",
+    "git",
+    "writing",
+    "github"
+  ],
+  "projectTypes": [
+    "generic"
+  ],
   "license": "MIT",
-  "tags": ["release-notes", "changelog", "release", "git", "writing", "github"],
-  "projectTypes": ["generic"],
+  "repository": {
+    "url": "https://github.com/lozymon/airules",
+    "directory": "agents/release-notes-writer"
+  },
   "targets": {
-    "claude-code": { "file": "AGENT.md" }
+    "claude-code": {
+      "file": "AGENT.md"
+    }
   }
 }

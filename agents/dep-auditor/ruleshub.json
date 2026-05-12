@@ -1,13 +1,28 @@
 {
   "$schema": "https://ruleshub.dev/schema/ruleshub.json",
   "name": "lozymon/dep-auditor",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "agent",
   "description": "Read-only dependency audit (Node, Python, Rust, Go, Ruby): runs ecosystem-native outdated/audit tools and reports vulnerable, outdated, abandoned, or duplicated deps grouped by severity",
+  "tags": [
+    "dependencies",
+    "audit",
+    "security",
+    "upgrades",
+    "supply-chain",
+    "outdated"
+  ],
+  "projectTypes": [
+    "generic"
+  ],
   "license": "MIT",
-  "tags": ["dependencies", "audit", "security", "upgrades", "supply-chain", "outdated"],
-  "projectTypes": ["generic"],
+  "repository": {
+    "url": "https://github.com/lozymon/airules",
+    "directory": "agents/dep-auditor"
+  },
   "targets": {
-    "claude-code": { "file": "AGENT.md" }
+    "claude-code": {
+      "file": "AGENT.md"
+    }
   }
 }

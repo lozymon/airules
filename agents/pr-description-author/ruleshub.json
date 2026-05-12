@@ -1,13 +1,28 @@
 {
   "$schema": "https://ruleshub.dev/schema/ruleshub.json",
   "name": "lozymon/pr-description-author",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "agent",
   "description": "Reads branch diff vs. base and writes a high-signal PR description: Summary, Why, Changes, Test plan, Risk, Reviewer notes; refuses to fabricate WHY when commits don't state it",
+  "tags": [
+    "pr",
+    "pull-request",
+    "code-review",
+    "git",
+    "writing",
+    "github"
+  ],
+  "projectTypes": [
+    "generic"
+  ],
   "license": "MIT",
-  "tags": ["pr", "pull-request", "code-review", "git", "writing", "github"],
-  "projectTypes": ["generic"],
+  "repository": {
+    "url": "https://github.com/lozymon/airules",
+    "directory": "agents/pr-description-author"
+  },
   "targets": {
-    "claude-code": { "file": "AGENT.md" }
+    "claude-code": {
+      "file": "AGENT.md"
+    }
   }
 }

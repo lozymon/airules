@@ -1,12 +1,24 @@
 {
   "$schema": "https://ruleshub.dev/schema/ruleshub.json",
   "name": "lozymon/starter-quality",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "pack",
   "description": "Baseline code-quality bundle: strict TypeScript rules, pre-PR review command, and commit-cleanup skill. Drop-in starter for any TS project.",
+  "tags": [
+    "starter",
+    "quality",
+    "typescript",
+    "pr-review"
+  ],
+  "projectTypes": [
+    "typescript",
+    "node"
+  ],
   "license": "MIT",
-  "tags": ["starter", "quality", "typescript", "pr-review"],
-  "projectTypes": ["typescript", "node"],
+  "repository": {
+    "url": "https://github.com/lozymon/airules",
+    "directory": "packs/starter-quality"
+  },
   "includes": [
     "lozymon/typescript-strict@^0.1.0",
     "lozymon/pr-review@^0.1.0",

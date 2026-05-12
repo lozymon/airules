@@ -1,13 +1,28 @@
 {
   "$schema": "https://ruleshub.dev/schema/ruleshub.json",
   "name": "lozymon/draft-issue",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "skill",
   "description": "Coach the user to write a high-quality issue (bug, feature, subtask, other) using type-specific required fields and a pre-flight quality check; outputs provider-neutral Markdown for any tracker",
+  "tags": [
+    "issues",
+    "tickets",
+    "quality",
+    "bug-report",
+    "feature-request",
+    "tracker"
+  ],
+  "projectTypes": [
+    "generic"
+  ],
   "license": "MIT",
-  "tags": ["issues", "tickets", "quality", "bug-report", "feature-request", "tracker"],
-  "projectTypes": ["generic"],
+  "repository": {
+    "url": "https://github.com/lozymon/airules",
+    "directory": "skills/draft-issue"
+  },
   "targets": {
-    "claude-code": { "file": "SKILL.md" }
+    "claude-code": {
+      "file": "SKILL.md"
+    }
   }
 }

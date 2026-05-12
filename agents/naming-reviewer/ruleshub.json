@@ -1,13 +1,27 @@
 {
   "$schema": "https://ruleshub.dev/schema/ruleshub.json",
   "name": "lozymon/naming-reviewer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "agent",
-  "description": "Reviews changed code for naming issues — misleading, ambiguous, type-redundant, inconsistent verbs, negated booleans, stuttering, lying — with rationale and sibling-aware replacement suggestions",
+  "description": "Reviews changed code for naming issues \u2014 misleading, ambiguous, type-redundant, inconsistent verbs, negated booleans, stuttering, lying \u2014 with rationale and sibling-aware replacement suggestions",
+  "tags": [
+    "naming",
+    "review",
+    "refactor",
+    "readability",
+    "code-quality"
+  ],
+  "projectTypes": [
+    "generic"
+  ],
   "license": "MIT",
-  "tags": ["naming", "review", "refactor", "readability", "code-quality"],
-  "projectTypes": ["generic"],
+  "repository": {
+    "url": "https://github.com/lozymon/airules",
+    "directory": "agents/naming-reviewer"
+  },
   "targets": {
-    "claude-code": { "file": "AGENT.md" }
+    "claude-code": {
+      "file": "AGENT.md"
+    }
   }
 }

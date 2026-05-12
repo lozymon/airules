@@ -1,13 +1,27 @@
 {
   "$schema": "https://ruleshub.dev/schema/ruleshub.json",
   "name": "lozymon/edge-case-generator",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "agent",
-  "description": "Given a function, proposes domain-specific edge cases (boundary, numeric, string, time, collection, concurrency, error, state, security, locale) — each with the input and the bug it catches",
+  "description": "Given a function, proposes domain-specific edge cases (boundary, numeric, string, time, collection, concurrency, error, state, security, locale) \u2014 each with the input and the bug it catches",
+  "tags": [
+    "testing",
+    "edge-cases",
+    "test-cases",
+    "robustness",
+    "quality"
+  ],
+  "projectTypes": [
+    "generic"
+  ],
   "license": "MIT",
-  "tags": ["testing", "edge-cases", "test-cases", "robustness", "quality"],
-  "projectTypes": ["generic"],
+  "repository": {
+    "url": "https://github.com/lozymon/airules",
+    "directory": "agents/edge-case-generator"
+  },
   "targets": {
-    "claude-code": { "file": "AGENT.md" }
+    "claude-code": {
+      "file": "AGENT.md"
+    }
   }
 }

@@ -1,13 +1,28 @@
 {
   "$schema": "https://ruleshub.dev/schema/ruleshub.json",
   "name": "lozymon/api-design-reviewer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "agent",
   "description": "Reviews a proposed API surface (TS, REST, GraphQL, signatures) for consistency with siblings, ergonomics, error handling, evolvability, and type safety; every finding has rationale, not nitpicks",
+  "tags": [
+    "api-design",
+    "review",
+    "typescript",
+    "rest",
+    "graphql",
+    "schema"
+  ],
+  "projectTypes": [
+    "generic"
+  ],
   "license": "MIT",
-  "tags": ["api-design", "review", "typescript", "rest", "graphql", "schema"],
-  "projectTypes": ["generic"],
+  "repository": {
+    "url": "https://github.com/lozymon/airules",
+    "directory": "agents/api-design-reviewer"
+  },
   "targets": {
-    "claude-code": { "file": "AGENT.md" }
+    "claude-code": {
+      "file": "AGENT.md"
+    }
   }
 }

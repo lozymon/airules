@@ -1,10 +1,9 @@
 {
   "$schema": "https://ruleshub.dev/schema/ruleshub.json",
   "name": "lozymon/drill-me",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "skill",
   "description": "Generic interviewer: pick a scaffold for a topic (planning, decision, retro, investigation, spec, brainstorm), drill one question per turn, then synthesize a structured Markdown writeup",
-  "license": "MIT",
   "tags": [
     "interview",
     "planning",
@@ -15,14 +14,35 @@
     "brainstorm",
     "coaching"
   ],
-  "projectTypes": ["generic"],
+  "projectTypes": [
+    "generic"
+  ],
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/lozymon/airules",
+    "directory": "skills/drill-me"
+  },
   "targets": {
-    "claude-code": { "file": "SKILL.md" },
-    "cursor": { "file": "SKILL.md" },
-    "copilot": { "file": "SKILL.md" },
-    "windsurf": { "file": "SKILL.md" },
-    "cline": { "file": "SKILL.md" },
-    "aider": { "file": "SKILL.md" },
-    "continue": { "file": "SKILL.md" }
+    "claude-code": {
+      "file": "SKILL.md"
+    },
+    "cursor": {
+      "file": "SKILL.md"
+    },
+    "copilot": {
+      "file": "SKILL.md"
+    },
+    "windsurf": {
+      "file": "SKILL.md"
+    },
+    "cline": {
+      "file": "SKILL.md"
+    },
+    "aider": {
+      "file": "SKILL.md"
+    },
+    "continue": {
+      "file": "SKILL.md"
+    }
   }
 }

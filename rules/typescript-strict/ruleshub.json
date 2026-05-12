@@ -1,13 +1,28 @@
 {
   "$schema": "https://ruleshub.dev/schema/ruleshub.json",
   "name": "lozymon/typescript-strict",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "rule",
   "description": "Enforce strict TypeScript: no any, prefer unknown at boundaries, exhaustive switches, narrow types, and no non-null assertions.",
+  "tags": [
+    "typescript",
+    "strict",
+    "type-safety"
+  ],
+  "projectTypes": [
+    "typescript",
+    "node",
+    "react",
+    "next"
+  ],
   "license": "MIT",
-  "tags": ["typescript", "strict", "type-safety"],
-  "projectTypes": ["typescript", "node", "react", "next"],
+  "repository": {
+    "url": "https://github.com/lozymon/airules",
+    "directory": "rules/typescript-strict"
+  },
   "targets": {
-    "claude-code": { "file": "CLAUDE.md" }
+    "claude-code": {
+      "file": "CLAUDE.md"
+    }
   }
 }

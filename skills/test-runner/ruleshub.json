@@ -1,13 +1,25 @@
 {
   "$schema": "https://ruleshub.dev/schema/ruleshub.json",
   "name": "lozymon/test-runner",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "skill",
   "description": "Detect the project's test framework, run the suite (or a focused subset), and summarize failures with file:line and the assertion that failed.",
+  "tags": [
+    "testing",
+    "ci",
+    "test-runner"
+  ],
+  "projectTypes": [
+    "generic"
+  ],
   "license": "MIT",
-  "tags": ["testing", "ci", "test-runner"],
-  "projectTypes": ["generic"],
+  "repository": {
+    "url": "https://github.com/lozymon/airules",
+    "directory": "skills/test-runner"
+  },
   "targets": {
-    "claude-code": { "file": "SKILL.md" }
+    "claude-code": {
+      "file": "SKILL.md"
+    }
   }
 }

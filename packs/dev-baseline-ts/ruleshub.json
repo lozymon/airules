@@ -1,12 +1,26 @@
 {
   "$schema": "https://ruleshub.dev/schema/ruleshub.json",
   "name": "lozymon/dev-baseline-ts",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "pack",
   "description": "TypeScript dev baseline: dev-baseline plus strict TS rules. Conventional commits, no-secrets, PR review, bug-fix, refactor, commit cleanup, test runner, security audit, typescript-strict.",
+  "tags": [
+    "baseline",
+    "quality",
+    "security",
+    "typescript"
+  ],
+  "projectTypes": [
+    "typescript",
+    "node",
+    "react",
+    "next"
+  ],
   "license": "MIT",
-  "tags": ["baseline", "quality", "security", "typescript"],
-  "projectTypes": ["typescript", "node", "react", "next"],
+  "repository": {
+    "url": "https://github.com/lozymon/airules",
+    "directory": "packs/dev-baseline-ts"
+  },
   "includes": [
     "lozymon/typescript-strict@^0.1.0",
     "lozymon/git-commit-conventions@^0.1.0",
