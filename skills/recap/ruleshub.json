@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ruleshub.dev/schema/ruleshub.json",
+  "name": "lozymon/recap",
+  "version": "0.1.0",
+  "type": "skill",
+  "description": "Summarize the work just done in the session — changed files, motivation, verification steps, and outstanding follow-ups — in a short scannable format",
+  "tags": [
+    "summary",
+    "recap",
+    "workflow",
+    "review"
+  ],
+  "projectTypes": [
+    "generic"
+  ],
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/lozymon/airules",
+    "directory": "skills/recap"
+  },
+  "targets": {
+    "claude-code": {
+      "file": "SKILL.md"
+    }
+  }
+}

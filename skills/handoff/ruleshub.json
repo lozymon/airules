@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ruleshub.dev/schema/ruleshub.json",
+  "name": "lozymon/handoff",
+  "version": "0.1.0",
+  "type": "skill",
+  "description": "Produce a self-contained handoff document — context, branch state, done/in-progress, decisions, dead ends, gotchas, open questions, next steps — for the next person picking up the work",
+  "tags": [
+    "handoff",
+    "workflow",
+    "context",
+    "documentation"
+  ],
+  "projectTypes": [
+    "generic"
+  ],
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/lozymon/airules",
+    "directory": "skills/handoff"
+  },
+  "targets": {
+    "claude-code": {
+      "file": "SKILL.md"
+    }
+  }
+}

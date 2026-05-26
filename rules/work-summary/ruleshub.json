@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ruleshub.dev/schema/ruleshub.json",
+  "name": "lozymon/work-summary",
+  "version": "0.1.1",
+  "type": "rule",
+  "description": "End every non-trivial task with a four-line summary block (Changed, Why, Verify, Next) so the user can skim what happened without reading the diff",
+  "tags": ["workflow", "summary", "communication", "review"],
+  "projectTypes": ["generic"],
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/lozymon/airules",
+    "directory": "rules/work-summary"
+  },
+  "targets": {
+    "claude-code": {
+      "file": "CLAUDE.md"
+    }
+  }
+}
