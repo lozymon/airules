@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ruleshub.dev/schema/ruleshub.json",
+  "name": "lozymon/local-review",
+  "version": "0.1.0",
+  "type": "command",
+  "description": "Review uncommitted working-tree changes for leftovers, bugs, missing tests, secrets, and style violations before committing",
+  "tags": [
+    "code-review",
+    "pre-commit",
+    "git"
+  ],
+  "projectTypes": [
+    "generic"
+  ],
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/lozymon/airules",
+    "directory": "commands/local-review"
+  },
+  "targets": {
+    "claude-code": {
+      "file": "command.md"
+    }
+  }
+}
